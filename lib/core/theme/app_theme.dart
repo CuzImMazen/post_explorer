@@ -10,6 +10,7 @@ abstract final class AppTheme {
       backgroundColor: AppColors.background,
       elevation: 0,
       toolbarHeight: 80,
+      surfaceTintColor: Colors.transparent,
     ),
   );
 }

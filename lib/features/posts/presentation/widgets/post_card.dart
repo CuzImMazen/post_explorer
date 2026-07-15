@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:post_explorer/core/constants/spacing/app_spacing.dart';
 import 'package:post_explorer/core/constants/spacing/vertcial_spacing.dart';
-import 'package:post_explorer/core/theme/app_colors.dart';
 import 'package:post_explorer/core/theme/app_textstyles.dart';
+import 'package:post_explorer/features/posts/presentation/widgets/post_card_header.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard({super.key});
@@ -35,41 +35,9 @@ class PostCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
             ),
-            //VerticalSpacing(height: AppSpacing.md),
           ],
         ),
       ),
-    );
-  }
-}
-
-class PostCardHeader extends StatelessWidget {
-  const PostCardHeader({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha(30),
-            borderRadius: BorderRadius.circular(22),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-            child: Text(
-              "Post #1",
-              style: TextStyle(
-                color: AppColors.primary,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-        Spacer(),
-        //Favorite Button
-        IconButton(icon: Icon(Icons.favorite_border), onPressed: () {}),
-      ],
     );
   }
 }

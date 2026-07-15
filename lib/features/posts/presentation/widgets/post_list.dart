@@ -10,7 +10,7 @@ class PostList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
-        itemCount: 10,
+        itemCount: 5,
         separatorBuilder: (context, index) =>
             const VerticalSpacing(height: AppSpacing.md),
         itemBuilder: (context, index) {

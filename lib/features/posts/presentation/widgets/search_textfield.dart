@@ -8,6 +8,7 @@ class SearchTextfield extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: TextField(
+        textInputAction: TextInputAction.search,
         decoration: InputDecoration(
           hintText: 'Search posts...',
           hintStyle: const TextStyle(color: Colors.grey),
