@@ -13,7 +13,7 @@ class FailureMapper {
         return const NetworkFailure('No internet connection.');
 
       case DioExceptionType.badResponse:
-        return const ServerFailure('Server error.');
+        return const ServerFailure('Server error. try again later.');
 
       default:
         return const UnknownFailure('Something went wrong.');

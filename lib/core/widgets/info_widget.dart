@@ -13,11 +13,13 @@ class InfoWidget extends StatelessWidget {
     required this.subtitle,
     required this.asset,
     this.showRetryButton = false,
+    this.onRetry,
   });
   final String asset;
   final String title;
   final String subtitle;
   final bool showRetryButton;
+  final VoidCallback? onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class InfoWidget extends StatelessWidget {
           VerticalSpacing(height: AppSpacing.md),
           if (showRetryButton)
             ElevatedButton(
-              onPressed: () {},
+              onPressed: onRetry,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
               ),

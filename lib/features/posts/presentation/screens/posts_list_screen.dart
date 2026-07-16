@@ -21,7 +21,7 @@ class PostsListScreen extends StatelessWidget {
             VerticalSpacing(height: AppSpacing.md),
             Divider(),
             VerticalSpacing(height: AppSpacing.sm),
-            PostList(),
+            Expanded(child: PostList()),
             VerticalSpacing(height: AppSpacing.md),
           ],
         ),

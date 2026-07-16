@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:post_explorer/core/di/app_bindings.dart';
 import 'package:post_explorer/core/theme/app_theme.dart';
 import 'package:post_explorer/features/posts/presentation/screens/posts_list_screen.dart';
 
@@ -9,10 +11,10 @@ void main() {
 class PostsExplorer extends StatelessWidget {
   const PostsExplorer({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      initialBinding: InitialBinding(),
       title: 'Post Explorer',
       theme: AppTheme.lightTheme,
       home: const PostsListScreen(),
