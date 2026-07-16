@@ -12,6 +12,7 @@ class FailureMapper {
       case DioExceptionType.connectionError:
         return const NetworkFailure('No internet connection.');
 
+      // here i can  map bad response to specific status codes but for simple json fetching this is enough
       case DioExceptionType.badResponse:
         return const ServerFailure('Server error. try again later.');
 

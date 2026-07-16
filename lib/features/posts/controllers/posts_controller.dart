@@ -48,12 +48,21 @@ class PostsController extends GetxController {
     searchQuery.value = query;
     if (query.isEmpty) {
       filteredPosts.assignAll(posts);
+      state.value = posts.isEmpty ? ScreenState.empty : ScreenState.success;
       return;
     }
+
     final result = posts.where(
       (post) => post.title.toLowerCase().contains(query.toLowerCase()),
     );
+
     filteredPosts.assignAll(result);
+
+    if (filteredPosts.isEmpty) {
+      state.value = ScreenState.empty;
+    } else {
+      state.value = ScreenState.success;
+    }
   }
 
   // Favorite
