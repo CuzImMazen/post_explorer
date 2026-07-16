@@ -36,7 +36,6 @@ class PostsController extends GetxController {
         } else {
           posts.assignAll(data);
           searchPosts(searchQuery.value);
-          state.value = ScreenState.success;
         }
       },
     );
