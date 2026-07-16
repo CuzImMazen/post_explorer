@@ -71,14 +71,14 @@ class PostList extends StatelessWidget {
           return RefreshIndicator(
             onRefresh: controller.getPosts,
             child: ListView.separated(
-              itemCount: controller.posts.length,
+              itemCount: controller.filteredPosts.length,
 
               separatorBuilder: (context, index) {
                 return const VerticalSpacing(height: AppSpacing.md);
               },
 
               itemBuilder: (context, index) {
-                final post = controller.posts[index];
+                final post = controller.filteredPosts[index];
 
                 return PostCard(post: post);
               },

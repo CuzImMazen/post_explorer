@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:post_explorer/features/posts/controller/posts_controller.dart';
 
 class SearchTextfield extends StatelessWidget {
   const SearchTextfield({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<PostsController>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: TextField(
         textInputAction: TextInputAction.search,
+        onChanged: (value) {
+          controller.searchPosts(value);
+        },
         decoration: InputDecoration(
           hintText: 'Search posts...',
           hintStyle: const TextStyle(color: Colors.grey),

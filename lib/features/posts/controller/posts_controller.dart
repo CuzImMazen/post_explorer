@@ -14,10 +14,11 @@ class PostsController extends GetxController {
     getPosts();
   }
 
-  // initial state
   final posts = <PostModel>[].obs;
+  final filteredPosts = <PostModel>[].obs;
   final state = ScreenState.initial.obs;
   final errorMessage = ''.obs;
+  final searchQuery = ''.obs;
 
   Future<void> getPosts() async {
     state.value = ScreenState.loading;
@@ -32,9 +33,22 @@ class PostsController extends GetxController {
           state.value = ScreenState.empty;
         } else {
           posts.assignAll(data);
+          searchPosts(searchQuery.value);
           state.value = ScreenState.success;
         }
       },
     );
+  }
+
+  void searchPosts(String query) {
+    searchQuery.value = query;
+    if (query.isEmpty) {
+      filteredPosts.assignAll(posts);
+      return;
+    }
+    final result = posts.where(
+      (post) => post.title.toLowerCase().contains(query.toLowerCase()),
+    );
+    filteredPosts.assignAll(result);
   }
 }
