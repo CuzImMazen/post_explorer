@@ -80,7 +80,7 @@ class PostList extends StatelessWidget {
               itemBuilder: (context, index) {
                 final post = controller.filteredPosts[index];
 
-                return PostCard(post: post);
+                return PostCard(post: post, showFullPost: false);
               },
             ),
           );
