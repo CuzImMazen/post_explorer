@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:post_explorer/core/theme/app_colors.dart';
 
 class PostCardHeader extends StatelessWidget {
-  const PostCardHeader({super.key, required this.postNumber});
+  const PostCardHeader({
+    super.key,
+    required this.postNumber,
+    required this.insideDetailScreen,
+  });
   final int postNumber;
+  final bool insideDetailScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,8 @@ class PostCardHeader extends StatelessWidget {
         PostNumberCard(postNumber: postNumber),
         Spacer(),
         //Favorite Button
-        IconButton(icon: Icon(Icons.favorite_border), onPressed: () {}),
+        if (!insideDetailScreen)
+          IconButton(icon: Icon(Icons.favorite_border), onPressed: () {}),
       ],
     );
   }

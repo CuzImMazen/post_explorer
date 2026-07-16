@@ -1,0 +1,25 @@
+class CommentModel {
+  int id;
+  int postId;
+  String name;
+  String email;
+  String body;
+
+  CommentModel({
+    required this.id,
+    required this.postId,
+    required this.name,
+    required this.email,
+    required this.body,
+  });
+
+  factory CommentModel.fromJson(Map<String, dynamic> json) {
+    return CommentModel(
+      id: json['id'] as int,
+      postId: json['post_id'] as int,
+      name: json['name'] as String,
+      email: json['email'] as String,
+      body: json['body'] as String,
+    );
+  }
+}

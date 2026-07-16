@@ -8,9 +8,13 @@ import 'package:post_explorer/features/posts/data/models/post_model.dart';
 import 'package:post_explorer/features/posts/presentation/widgets/post_card_header.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({super.key, required this.post, this.showFullPost = false});
+  const PostCard({
+    super.key,
+    required this.post,
+    this.insideDetailScreen = false,
+  });
   final PostModel post;
-  final bool showFullPost;
+  final bool insideDetailScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +22,10 @@ class PostCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: GestureDetector(
         onTap: () {
-          Get.toNamed(AppRoutes.postDetail);
+          Get.toNamed(AppRoutes.postDetail, arguments: post);
         },
         child: Container(
-          padding: const EdgeInsets.fromLTRB(8, 8, 8, 18),
+          padding: const EdgeInsets.fromLTRB(8, 10, 8, 18),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -30,7 +34,10 @@ class PostCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PostCardHeader(postNumber: post.id),
+              PostCardHeader(
+                postNumber: post.id,
+                insideDetailScreen: insideDetailScreen,
+              ),
               VerticalSpacing(height: AppSpacing.md),
               //Post Title
               Text(post.title, style: AppTextstyles.titleMedium),
@@ -39,8 +46,8 @@ class PostCard extends StatelessWidget {
               Text(
                 post.body,
                 style: AppTextstyles.bodyMedium,
-                overflow: showFullPost ? null : TextOverflow.ellipsis,
-                maxLines: showFullPost ? null : 2,
+                overflow: insideDetailScreen ? null : TextOverflow.ellipsis,
+                maxLines: insideDetailScreen ? null : 2,
               ),
             ],
           ),
