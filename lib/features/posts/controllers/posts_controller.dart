@@ -19,7 +19,9 @@ class PostsController extends GetxController {
   final state = ScreenState.initial.obs;
   final errorMessage = ''.obs;
   final searchQuery = ''.obs;
+  final favoriteIds = <int>{}.obs;
 
+  // Fetch posts
   Future<void> getPosts() async {
     state.value = ScreenState.loading;
     final result = await postsRepository.getPosts();
@@ -40,6 +42,8 @@ class PostsController extends GetxController {
     );
   }
 
+  // Search
+
   void searchPosts(String query) {
     searchQuery.value = query;
     if (query.isEmpty) {
@@ -50,5 +54,21 @@ class PostsController extends GetxController {
       (post) => post.title.toLowerCase().contains(query.toLowerCase()),
     );
     filteredPosts.assignAll(result);
+  }
+
+  // Favorite
+
+  void toggleFavorite(int postId) {
+    if (favoriteIds.contains(postId)) {
+      favoriteIds.remove(postId);
+    } else {
+      favoriteIds.add(postId);
+    }
+
+    favoriteIds.refresh();
+  }
+
+  bool isFavorite(int postId) {
+    return favoriteIds.contains(postId);
   }
 }

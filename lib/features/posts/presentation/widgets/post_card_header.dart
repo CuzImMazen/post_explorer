@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:post_explorer/core/theme/app_colors.dart';
+import 'package:post_explorer/features/posts/controllers/posts_controller.dart';
 
 class PostCardHeader extends StatelessWidget {
   const PostCardHeader({
@@ -12,13 +14,21 @@ class PostCardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<PostsController>();
     return Row(
       children: [
         PostNumberCard(postNumber: postNumber),
         Spacer(),
         //Favorite Button
         if (!insideDetailScreen)
-          IconButton(icon: Icon(Icons.favorite_border), onPressed: () {}),
+          Obx(
+            () => IconButton(
+              icon: controller.isFavorite(postNumber)
+                  ? Icon(Icons.favorite, color: AppColors.favorite)
+                  : Icon(Icons.favorite_border),
+              onPressed: () => controller.toggleFavorite(postNumber),
+            ),
+          ),
       ],
     );
   }

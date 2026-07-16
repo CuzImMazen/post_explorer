@@ -16,7 +16,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.postDetail,
       page: () => PostsDetailScreen(),
-      bindings: [CommentsBinding()],
+      bindings: [CommentsBinding(), PostsBinding()],
     ),
   ];
 }
