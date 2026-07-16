@@ -6,7 +6,7 @@ import 'package:post_explorer/core/constants/spacing/app_spacing.dart';
 import 'package:post_explorer/core/constants/spacing/vertcial_spacing.dart';
 import 'package:post_explorer/core/enums/enums.dart';
 import 'package:post_explorer/core/widgets/info_widget.dart';
-import 'package:post_explorer/features/posts/controller/posts_controller.dart';
+import 'package:post_explorer/features/posts/controllers/posts_controller.dart';
 import 'package:post_explorer/features/posts/presentation/widgets/post_card.dart';
 import 'package:post_explorer/features/posts/presentation/widgets/post_card_shimmer.dart';
 

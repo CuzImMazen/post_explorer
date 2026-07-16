@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:post_explorer/core/constants/spacing/app_spacing.dart';
 import 'package:post_explorer/core/constants/spacing/vertcial_spacing.dart';
 import 'package:post_explorer/core/theme/app_textstyles.dart';
+import 'package:post_explorer/features/posts/data/models/comment_model.dart';
 
 class CommentCard extends StatelessWidget {
-  const CommentCard({super.key});
-
+  const CommentCard({super.key, required this.comment});
+  final CommentModel comment;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,12 +21,12 @@ class CommentCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Mazen Alrefai", style: AppTextstyles.titleMedium),
+            Text(comment.name, style: AppTextstyles.titleMedium),
             VerticalSpacing(height: AppSpacing.sm),
-            Text("mazenalrefai@gmail.com", style: AppTextstyles.bodyMedium),
+            Text(comment.email, style: AppTextstyles.bodyMedium),
             VerticalSpacing(height: AppSpacing.md),
             Text(
-              "I'm a software engineer with a passion for building beautiful user experiences. I love to explore new technologies and push the boundaries of what's possible.",
+              comment.body,
               style: AppTextstyles.bodyMedium.copyWith(color: Colors.blueGrey),
             ),
           ],

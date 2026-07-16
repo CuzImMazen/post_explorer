@@ -11,11 +11,11 @@ class InfoWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
-    required this.asset,
+    this.asset,
     this.showRetryButton = false,
     this.onRetry,
   });
-  final String asset;
+  final String? asset;
   final String title;
   final String subtitle;
   final bool showRetryButton;
@@ -31,12 +31,13 @@ class InfoWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
 
         children: [
-          SvgPicture.asset(
-            asset,
-            width: svgSize,
-            height: svgSize,
-            fit: BoxFit.contain,
-          ),
+          if (asset != null)
+            SvgPicture.asset(
+              asset!,
+              width: svgSize,
+              height: svgSize,
+              fit: BoxFit.contain,
+            ),
           VerticalSpacing(height: AppSpacing.md),
           Text(title, style: AppTextstyles.titleMedium),
           VerticalSpacing(height: AppSpacing.md),

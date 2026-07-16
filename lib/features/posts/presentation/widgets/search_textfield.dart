@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:post_explorer/features/posts/controller/posts_controller.dart';
+import 'package:post_explorer/features/posts/controllers/posts_controller.dart';
 
 class SearchTextfield extends StatelessWidget {
   const SearchTextfield({super.key});

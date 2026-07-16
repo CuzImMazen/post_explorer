@@ -16,7 +16,7 @@ class CommentModel {
   factory CommentModel.fromJson(Map<String, dynamic> json) {
     return CommentModel(
       id: json['id'] as int,
-      postId: json['post_id'] as int,
+      postId: json['postId'] as int,
       name: json['name'] as String,
       email: json['email'] as String,
       body: json['body'] as String,
