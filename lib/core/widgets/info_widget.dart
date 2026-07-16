@@ -21,12 +21,20 @@ class InfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
+    final svgSize = screenSize.width * 0.5;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
 
         children: [
-          SvgPicture.asset(asset, width: 200, height: 200),
+          SvgPicture.asset(
+            asset,
+            width: svgSize,
+            height: svgSize,
+            fit: BoxFit.contain,
+          ),
           VerticalSpacing(height: AppSpacing.md),
           Text(title, style: AppTextstyles.titleMedium),
           VerticalSpacing(height: AppSpacing.md),

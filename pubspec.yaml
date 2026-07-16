@@ -37,6 +37,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   shimmer: ^3.0.0
   flutter_svg: ^2.3.0
+  dartz: ^0.10.1
 
 
   # The following adds the Cupertino Icons font to your application.
