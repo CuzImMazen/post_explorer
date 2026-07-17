@@ -17,12 +17,12 @@ class PostsListScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            SearchTextfield(),
-            VerticalSpacing(height: AppSpacing.md),
-            Divider(),
-            VerticalSpacing(height: AppSpacing.sm),
-            Expanded(child: PostList()),
-            VerticalSpacing(height: AppSpacing.md),
+            const SearchTextfield(),
+            const VerticalSpacing(height: AppSpacing.md),
+            const Divider(),
+            const VerticalSpacing(height: AppSpacing.sm),
+            const Expanded(child: PostList()),
+            const VerticalSpacing(height: AppSpacing.md),
           ],
         ),
       ),

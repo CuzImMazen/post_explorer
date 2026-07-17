@@ -33,14 +33,14 @@ class PostsDetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Divider(),
-          VerticalSpacing(height: AppSpacing.md),
+          const Divider(),
+          const VerticalSpacing(height: AppSpacing.md),
           PostCard(post: post, insideDetailScreen: true),
-          VerticalSpacing(height: AppSpacing.md),
-          CommentDivider(),
-          VerticalSpacing(height: AppSpacing.md),
-          Expanded(child: CommentList()),
-          VerticalSpacing(height: AppSpacing.md),
+          const VerticalSpacing(height: AppSpacing.md),
+          const CommentDivider(),
+          const VerticalSpacing(height: AppSpacing.md),
+          const Expanded(child: CommentList()),
+          const VerticalSpacing(height: AppSpacing.md),
         ],
       ),
     );
